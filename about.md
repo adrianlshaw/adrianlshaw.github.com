@@ -3,12 +3,12 @@ layout: page
 title: About
 ---
 
-Some information about you!
+If you wish to discuss technical topics or research, I'm reachable at the e-mail address below. 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself. 
+I'm currently a systems security reseacher. I completed my M.Sc. at the School of Computer Science at the University of Birmingham, UK. Before then, I finished my B.Sc. in Computer Science. Research interests of mine include a broad range of computer security topics, specifically virtualisation, trusted computing and software-defined networking.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+adrianlshaw [{at}] gmail `dot` com
