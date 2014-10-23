@@ -10,6 +10,8 @@ Thanks to the authors for A) not letting me know in the README about this, and B
 Rest assured, there is another way. I'm making a useful note here so I won't forget and for readers to enjoy.
 Exported symbols can be seen thanks to the GNU nm tool. 
 
+```
   nm -D /usr/local/lib/<your_library>.so | grep T | less
+```
 
 Now you just need to figure out which header files to use.
