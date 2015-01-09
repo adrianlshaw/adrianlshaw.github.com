@@ -52,17 +52,20 @@ And now run bash shell:
 {% endhighlight %}
 Huh? You now have root. What kind of messed up world is this? I can read/write to any file:
 
-```
+{% highlight bash %}
   root@host:/# rm -rf /*
-```
+{% endhighlight %}
 
 Or alternatively have a bit of fun
-```
+{% highlight bash %}
   root@host:/# rm /boot/*; reboot;
-```
+{% endhighlight %}
+
 
 Is it possible to be careful with Docker? It doesn't seem safe for mortals.
-```
+
+
+{% highlight bash %}
 # docker version
 
 Client version: 1.0.1
@@ -74,3 +77,4 @@ Server API version: 1.12
 Go version (server): go1.2.1
 Git commit (server): 990021a
 ```
+{% endhighlight %}
