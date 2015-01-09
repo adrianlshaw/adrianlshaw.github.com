@@ -5,15 +5,15 @@ title: Docker Container Madness
 
 Preamble:
 {% highlight bash %}
-  # apt-get install docker virt-manager
-  # export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
+# apt-get install docker virt-manager
+# export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
 
 Create an unprivileged user:
-```
+{% highlight bash %}
   # useradd -G libvirtd user 
-```
+{% endhighlight %}
 Save the following domXML template
-```
+{% highlight xml %}
   <domain type='lxc'>
 	  <name>container</name>
 	  <memory>102400</memory>
@@ -25,18 +25,18 @@ Save the following domXML template
 		  <console type='pty'/>
 	  </devices>
   </domain>
-```
+{% endhighlight %}
 Import container into Libvirt:
-```
+{% highlight bash %}
   user@host:~$ virsh define container.xml
-```
+{% endhighlight %}
 Start the container:
-```
+{% highlight bash %}
   user@host:~$ virsh start test
   user@host:~$ virsh console test
-```
+{% endhighlight %}
 And now run bash shell:
-```
+{% highlight bash %}
   Connected to domain test
   Escape character is ^]
   
@@ -49,7 +49,7 @@ And now run bash shell:
   The command could not be located because '/usr/bin' is not included in the PATH environment variable.
   dircolors: command not found
   root@host:/# 
-```
+{% endhighlight %}
 Huh? You now have root. What kind of messed up world is this? I can read/write to any file:
 
 ```
