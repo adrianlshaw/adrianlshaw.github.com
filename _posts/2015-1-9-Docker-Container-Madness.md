@@ -6,7 +6,7 @@ title: Docker Container Madness
 I'm unsure if this is a vulnerability on the intended behaviour of LXC/Docker. 
 Nevertheless, this harmless configuration file seems to cause A LOT of worry.
 
-Preamble if you are running a Debian-based host:
+Preamble if you are running a Debian-based host. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. `LIBVIRT_DEFAULT_URI=lxc:///` such that Libvirt doesn't go looking for Xen or KVM.
 {% highlight bash %}
 admin@host:~$ apt-get install docker virt-manager
 # export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
