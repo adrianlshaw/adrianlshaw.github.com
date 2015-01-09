@@ -3,6 +3,9 @@ layout: post
 title: Docker Container Madness
 ---
 
+I'm unsure if this is a vulnerability on the intended behaviour of LXC/Docker. 
+Nevertheless, this harmless configuration file seems to cause A LOT of worry.
+
 Preamble:
 {% highlight bash %}
 # apt-get install docker virt-manager
@@ -12,7 +15,7 @@ Create an unprivileged user:
 {% highlight bash %}
   # useradd -G libvirtd user 
 {% endhighlight %}
-Save the following domXML template
+Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
 {% highlight xml %}
   <domain type='lxc'>
 	  <name>container</name>
@@ -50,7 +53,9 @@ And now run bash shell:
   dircolors: command not found
   root@host:/# 
 {% endhighlight %}
-Huh? You now have root. What kind of messed up world is this? I can read/write to any file:
+
+Huh? You now have root on the host. 
+What kind of messed up world is this? I can read/write to any file on the host:
 
 {% highlight bash %}
   root@host:/# rm -rf /*
