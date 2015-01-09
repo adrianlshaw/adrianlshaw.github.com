@@ -5,11 +5,8 @@ title: Docker Container Madness
 
 Preamble:
 {% highlight bash %}
-
   # apt-get install docker virt-manager
-  # export LIBVIRT_DEFAULT_URI=lxc:///
-  
-{% endhighlight %}
+  # export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
 
 Create an unprivileged user:
 ```
