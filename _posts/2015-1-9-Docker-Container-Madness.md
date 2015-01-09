@@ -6,14 +6,14 @@ title: Docker Container Madness
 I'm unsure if this is a vulnerability on the intended behaviour of LXC/Docker. 
 Nevertheless, this harmless configuration file seems to cause A LOT of worry.
 
-Preamble:
+Preamble if you are running a Debian-based host:
 {% highlight bash %}
-# apt-get install docker virt-manager
+admin@host:~$ apt-get install docker virt-manager
 # export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
 
-Create an unprivileged user:
+Create an unprivileged user and login:
 {% highlight bash %}
-  # useradd -G libvirtd user 
+admin@host:~$ useradd -G libvirtd user 
 {% endhighlight %}
 Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
 {% highlight xml %}
