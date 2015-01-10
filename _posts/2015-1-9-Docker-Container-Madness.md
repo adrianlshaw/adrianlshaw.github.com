@@ -16,7 +16,7 @@ If you want to try this out, then here is the preamble if you are running a Debi
 admin@host:~$ sudo apt-get install docker virt-manager
 {% endhighlight %}
 
-Create an unprivileged user, but with access to the libvirtd group:
+Create an unprivileged user, but with access to the `libvirtd` group:
 {% highlight bash %}
 admin@host:~$ sudo useradd -G libvirtd user 
 admin@host:~$ sudo passwd user 
@@ -67,7 +67,7 @@ And now try to run the **bash** shell:
 root@host:/# 
 {% endhighlight %}
 
-Huh? You now have root on the host. 
+Huh? You now have root on the host. Without any prompt for a superuser password. 
 What kind of messed up world is this? I can read/write to any file on the host:
 
 Provide devastation:
