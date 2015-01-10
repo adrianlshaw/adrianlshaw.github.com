@@ -6,14 +6,14 @@ title: Docker Container Madness
 I'm unsure if this is a vulnerability on the intended behaviour of LXC/Docker. 
 Nevertheless, this harmless configuration file seems to cause A LOT of worry.
 
-Preamble if you are running a Debian-based host. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. `LIBVIRT_DEFAULT_URI=lxc:///` such that Libvirt doesn't go looking for Xen or KVM.
+If you want to try this out, then here is the preamble if you are running a Debian-based Linux. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. `LIBVIRT_DEFAULT_URI=lxc:///`, such that Libvirt doesn't go looking for Xen or KVM.
 {% highlight bash %}
-admin@host:~$ apt-get install docker virt-manager
-# export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
+admin@host:~$ sudo apt-get install docker virt-manager
+admin@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
 
 Create an unprivileged user, but with access to the libvirtd group:
 {% highlight bash %}
-admin@host:~$ useradd -G libvirtd user 
+admin@host:~$ sudo useradd -G libvirtd user 
 {% endhighlight %}
 Now you should login as the ordinary user. Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
 {% highlight xml %}
@@ -66,7 +66,7 @@ Or alternatively have a bit of fun
   root@host:/# rm /boot/*; reboot;
 {% endhighlight %}
 
-
+You can access everything in `/sbin`. 
 Is it possible to be careful with Docker? It doesn't seem safe for mortals.
 
 
