@@ -7,7 +7,7 @@ title: Docker Container Madness
 
 I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of LXC/Docker/Libvirt. Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of Docker, like myself, should be more concerned about how safe these defaults really are.
 
-<img src="https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/docker.png" alt="Docker logo" title="Docker" align="center"/>
+<img src="https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/docker.png" alt="Docker logo" title="Docker" align="middle" style="width: 50%; height: 50%"/>
 
 If you want to try this out, then here is the preamble if you are running a Debian-based Linux. 
 {% highlight bash %}
