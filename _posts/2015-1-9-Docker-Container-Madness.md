@@ -11,7 +11,7 @@ I'm unsure if this is actually a vulnerability or just a usability problem with 
 <img src="https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/docker.png" alt="Docker logo" title="Docker" style="width: 50%; height: 50%"/>
 </p>
 
-If you want to try this out, then here is the preamble if you are running a Debian-based Linux. 
+If you want to try this out, then here is the preamble if you are running a Debian-based Linux. In this case I am running Ubuntu 14.04.1. 
 {% highlight bash %}
 admin@host:~$ sudo apt-get install docker virt-manager
 {% endhighlight %}
@@ -84,7 +84,7 @@ root@host:/# rm /boot/*; reboot;
 You can access a lot of the system programs in /bin, but it's trivial to add yourself to the `sudoers` group instead. 
 Is it possible to be careful with Docker? It doesn't seem safe for mortals and is hardly encouraging. Like what Dan Walsh said in a recent article, it seems that "containers do not contain". At least not without a lot of experience and carefully crafted configs. 
 
-Thoughts are welcomed. Especially from Docker magicians - what are the semantics behind this configuration file? Privileges by default? But my user had no superuser access. The kernel of the host is 3.13.0-32-generic from Ubuntu 14.04.1.
+Thoughts are welcomed. Especially from Docker magicians - what are the semantics behind this configuration file? Privileges by default? But my user had no superuser access. 
 
 {% highlight bash %}
 $ docker version
