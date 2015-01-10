@@ -18,7 +18,7 @@ admin@host:~$ sudo useradd -G libvirtd user
 Now you should login as the ordinary user. Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
 {% highlight xml %}
   <domain type='lxc'>
-	  <name>container</name>
+	  <name>test</name>
 	  <memory>102400</memory>
 	  <os>
 		  <type>exe</type>
@@ -29,7 +29,7 @@ Now you should login as the ordinary user. Save the following XML template, whic
 	  </devices>
   </domain>
 {% endhighlight %}
-Import the container into Libvirt:
+Import the template into Libvirt:
 {% highlight bash %}
   user@host:~$ virsh define container.xml
 {% endhighlight %}
