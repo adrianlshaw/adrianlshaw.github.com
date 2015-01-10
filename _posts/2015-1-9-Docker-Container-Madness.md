@@ -5,7 +5,7 @@ title: Docker Container Madness
 
 (...or How I Got Root in Less than 5 Minutes)
 
-I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of LXC/Docker/Libvirt. Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of Docker, like myself, should be more concerned about how safe these defaults really are.
+I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of [LXC](https://linuxcontainers.org/)/[Docker](https://www.docker.com/)/[Libvirt](https://libvirt.org/). Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of Docker, like myself, should be more concerned about how safe these defaults really are.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/docker.png" alt="Docker logo" title="Docker" style="width: 50%; height: 50%"/>
@@ -39,15 +39,15 @@ Now you should login as the ordinary user. Save the following XML template, whic
 
 Import the template into Libvirt:
 {% highlight bash %}
-  user@host:~$ virsh define container.xml
+user@host:~$ virsh define container.xml
 {% endhighlight %}
 
 Start the container. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. **LIBVIRT_DEFAULT_URI=lxc:///**, such that Libvirt doesn't go looking for Xen or KVM.
 
 {% highlight bash %}
-  user@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///
-  user@host:~$ virsh start test
-  user@host:~$ virsh console test
+user@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///
+user@host:~$ virsh start test
+user@host:~$ virsh console test
 {% endhighlight %}
 
 And now try to run the **bash** shell:
