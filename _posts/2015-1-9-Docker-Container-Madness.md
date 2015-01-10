@@ -82,9 +82,9 @@ root@host:/# rm /boot/*; reboot;
 {% endhighlight %}
 
 You can access a lot of the system programs in /bin, but it's trivial to add yourself to the `sudoers` group instead. 
-Is it possible to be careful with Docker? It doesn't seem safe for mortals and is hardly encouraging. Like what Dan Walsh said in a recent article, it seems that "containers do not contain". At least not without a lot of experience and carefully crafted configs. 
+Is it possible to be careful with Docker? It doesn't seem safe for mortals and is hardly encouraging. Like what Dan Walsh said in a recent article, it seems that "containers do not contain". At least not without a lot of experience and carefully crafted configs. It would be a shame if such obscure semantics will let down the overall usability of the platform.
 
-Thoughts are welcomed. Especially from Docker magicians - what are the semantics behind this configuration file? Privileges by default? But my user had no superuser access. 
+Thoughts are welcomed. Especially from Docker magicians - what are the semantics behind this configuration file? Privileges by default? My user had no superuser access...I expect them to remain that way. 
 
 {% highlight bash %}
 $ docker version
