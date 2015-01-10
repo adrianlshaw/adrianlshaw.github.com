@@ -7,7 +7,7 @@ title: Linux Container Madness
 
 **Update**: This has nothing to do with Docker. My mistake - the concern is between LXC and Libvirt. Thanks to Wes Felter for pointing this out in the comments.
 
-I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of [LXC](https://linuxcontainers.org/)/[Libvirt](https://libvirt.org/). Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of containers, like myself, should be more concerned about how safe these defaults really are.
+I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of [LXC](https://linuxcontainers.org/)/[Libvirt](https://libvirt.org/). Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordinary user account. I imagine new users of containers, like myself, should be more concerned about how safe these defaults really are.
 
 If you want to try this out, then here is the preamble if you are running a Debian-based Linux. In this case I am running Ubuntu 14.04.1. 
 {% highlight bash %}
