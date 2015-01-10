@@ -42,7 +42,7 @@ Import the template into Libvirt:
 user@host:~$ virsh define container.xml
 {% endhighlight %}
 
-Start the container. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. **LIBVIRT_DEFAULT_URI=lxc:///**, such that Libvirt doesn't go looking for Xen or KVM.
+Start the container. Make sure you have the Libvirt environment variable exported to work with LXC (e.g. `LIBVIRT_DEFAULT_URI=lxc:///`), such that Libvirt doesn't go looking for Xen or KVM.
 
 {% highlight bash %}
 user@host:~$ export LIBVIRT_DEFAULT_URI=lxc:///
