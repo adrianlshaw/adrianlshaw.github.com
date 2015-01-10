@@ -3,7 +3,7 @@ layout: post
 title: Docker Container Madness
 ---
 
-(...Or how I got root access in less than 5 minutes)
+(...or How I Got Root in Less than 5 Minutes)
 
 I'm unsure if this is actually a vulnerability or just the intended behaviour of LXC/Docker. Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of Docker, like myself, should be more concerned about how safe these defaults really are.
 
