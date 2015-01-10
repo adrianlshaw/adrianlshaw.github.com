@@ -11,11 +11,11 @@ Preamble if you are running a Debian-based host. Make sure you have the Libvirt 
 admin@host:~$ apt-get install docker virt-manager
 # export LIBVIRT_DEFAULT_URI=lxc:///{% endhighlight %}
 
-Create an unprivileged user and login:
+Create an unprivileged user, but with access to the libvirtd group:
 {% highlight bash %}
 admin@host:~$ useradd -G libvirtd user 
 {% endhighlight %}
-Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
+Now you should login as the ordinary user. Save the following XML template, which contains a name, a memory limit, console access and a shell. E.g. container.xml
 {% highlight xml %}
   <domain type='lxc'>
 	  <name>container</name>
@@ -29,7 +29,7 @@ Save the following XML template, which contains a name, a memory limit, console 
 	  </devices>
   </domain>
 {% endhighlight %}
-Import container into Libvirt:
+Import the container into Libvirt:
 {% highlight bash %}
   user@host:~$ virsh define container.xml
 {% endhighlight %}
