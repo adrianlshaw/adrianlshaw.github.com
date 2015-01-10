@@ -46,7 +46,7 @@ Start the container. Make sure you have the Libvirt environment variable exporte
   user@host:~$ virsh console test
 {% endhighlight %}
 
-And now run bash shell:
+And now try to run the **bash** shell:
 
 {% highlight bash %}
   Connected to domain test
