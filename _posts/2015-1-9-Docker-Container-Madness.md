@@ -1,15 +1,13 @@
 ---
 layout: post
-title: Docker Container Madness
+title: Linux Container Madness
 ---
 
 (...or How I Got Root in Less than 5 Minutes)
 
-I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of [LXC](https://linuxcontainers.org/)/[Docker](https://www.docker.com/)/[Libvirt](https://libvirt.org/). Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of Docker, like myself, should be more concerned about how safe these defaults really are.
+**Update**: This has nothing to do with Docker. My mistake - the concern is between LXC and Libvirt. Thanks to Wes Felter for pointing this out in the comments.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/docker.png" alt="Docker logo" title="Docker" style="width: 50%; height: 50%"/>
-</p>
+I'm unsure if this is actually a vulnerability or just a usability problem with the normal behaviour of [LXC](https://linuxcontainers.org/)/[Libvirt](https://libvirt.org/). Nevertheless, this seemingly harmless template file seems to cause **A LOT** of worry, as it allowed me to elevate privileges on the host system from an ordainary user account. I imagine new users of containers, like myself, should be more concerned about how safe these defaults really are.
 
 If you want to try this out, then here is the preamble if you are running a Debian-based Linux. In this case I am running Ubuntu 14.04.1. 
 {% highlight bash %}
@@ -82,19 +80,7 @@ root@host:/# rm /boot/*; reboot;
 {% endhighlight %}
 
 You can access a lot of the system programs in /bin, but it's trivial to add yourself to the `sudoers` group instead. 
-Is it possible to be careful with Docker? It doesn't seem safe for mortals and is hardly encouraging. Like what Dan Walsh said in a recent article, it seems that "containers do not contain". At least not without a lot of experience and carefully crafted configs. It would be a shame if such obscure semantics will let down the overall usability of the platform.
+Is it possible to be careful with LXC? It doesn't seem safe for mortals and is hardly encouraging. Like what Dan Walsh said in a recent article, it seems that "containers do not contain". At least not without a lot of experience and carefully crafted configs. It would be a shame if such obscure semantics will let down the overall usability of the platform.
 
-Thoughts are welcomed. Especially from Docker magicians - what are the semantics behind this configuration file? Privileges by default? My user had no superuser access...I expect them to remain that way. 
+Thoughts are welcomed. Especially from LXC magicians - what are the semantics behind this configuration file? Privileges by default? My user had no superuser access...I expect them to remain that way. 
 
-{% highlight bash %}
-$ docker version
-
-Client version: 1.0.1
-Client API version: 1.12
-Go version (client): go1.2.1
-Git commit (client): 990021a
-Server version: 1.0.1
-Server API version: 1.12
-Go version (server): go1.2.1
-Git commit (server): 990021a
-{% endhighlight %}
