@@ -34,7 +34,7 @@ scripts that provide auxiliary functions during installation.
 At the very least, you must provide a file called **control**. Here 
 are some some example fields that should be included:
 
-```
+{% highlight bash %}
 Package: helloworld
 Depends: bash
 Version: 0.0.1
@@ -43,7 +43,7 @@ Architecture: all
 Essential: no
 Maintainer: adrianlshaw
 Description: This is an example Debian package
-```
+{% highlight bash %}
 
 Once that is done. You need to replicate subdirectories that will be used
 on your target system. For instance, if you intend to have your file
