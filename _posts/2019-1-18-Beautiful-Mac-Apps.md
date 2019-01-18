@@ -35,6 +35,10 @@ if you are interested in building it from scratch.
 
 A beautiful Git client. SourceTree is also a nice alternative (but requires agreeing to a EULA).
 
+![Picture of Fork app](https://github.com/adrianlshaw/adrianlshaw.github.com/raw/master/images/fork.png)
+
+
+
 ## Typora
 
 A really minimal Markdown client. I personally think it has a nicer style than MacDown.
