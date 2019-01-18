@@ -23,30 +23,32 @@ native to the Mac and feel great to use.
 To keep this list short I'm going to exclude any apps based on a framework like
 Electron or React :-) to me they are not native enough! 
 
-# Textual
+## Textual
 
-A beautiful IRC client.
+A beautiful IRC client. It's open soruce and also a paid product. If you like it you should consider buying their app.
+There are some helpful build instructions [here](https://blog.vortigaunt.net/how-to-compile-textual-in-2018/)
+if you are interested in building it from scratch. 
 
-# Fork
+## Fork
 
 A beautiful Git client. SourceTree is also a nice alternative (but requires agreeing to a EULA).
 
-# Typora
+## Typora
 
 A really minimal Markdown client. I personally think it has a nicer style than MacDown.
 
-# IINA
+## IINA
 
 Quicktime is too limited with file formats.
 
-# Cryptomator
+## Cryptomator
 
 Nicer than CLI variants.
 
-# Sloth
+## Sloth
 
 Shows what files are open by which apps.
 
-# Vienna 
+## Vienna 
 
 An RSS reader
