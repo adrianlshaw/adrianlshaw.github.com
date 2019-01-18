@@ -29,6 +29,8 @@ A beautiful IRC client. It's open soruce and also a paid product. If you like it
 There are some helpful build instructions [here](https://blog.vortigaunt.net/how-to-compile-textual-in-2018/)
 if you are interested in building it from scratch. 
 
+![Picture of Textual app](https://github.com/adrianlshaw/adrianlshaw.github.com/raw/master/images/textual.png)
+
 ## Fork
 
 A beautiful Git client. SourceTree is also a nice alternative (but requires agreeing to a EULA).
