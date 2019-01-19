@@ -20,8 +20,9 @@ There are plenty of lists online that describe where to get various free applica
 for the Mac. However, there isn't a curated list about free applications that are truly
 native to the Mac and feel great to use.
 
-To keep this list short I'm going to exclude any apps based on a framework like
-Electron or React :-) to me they are not native enough! 
+To keep this list short I'm going to exclude:
+* apps based on a framework like Electron or React :-) to me they are not native enough! 
+* apps that are only free for a trial period 
 
 ## Textual
 
@@ -37,11 +38,9 @@ A beautiful Git client. SourceTree is also a nice alternative (but requires agre
 
 ![Picture of Fork app](https://github.com/adrianlshaw/adrianlshaw.github.com/raw/master/images/fork.png)
 
+## OpenEmu
 
-
-## Typora
-
-A really minimal Markdown client. I personally think it has a nicer style than MacDown.
+A beautiful frontend for various emulators of old video game consoles. 
 
 ## IINA
 
