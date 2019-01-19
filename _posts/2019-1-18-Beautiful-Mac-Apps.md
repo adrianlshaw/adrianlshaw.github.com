@@ -42,6 +42,8 @@ A beautiful Git client. SourceTree is also a nice alternative (but requires agre
 
 A beautiful frontend for various emulators of old video game consoles. 
 
+![OpenEmu picture](https://raw.githubusercontent.com/adrianlshaw/adrianlshaw.github.com/master/images/openemu.png)
+
 ## IINA
 
 Quicktime is too limited with file formats.
