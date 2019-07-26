@@ -1,11 +1,10 @@
 
->Reminder: these are all personal opinions and are not affiliated with any employer 
-
+_Reminder: these are all personal opinions and are not affiliated with any employer_
 
 Supply chain security has been a long standing problem within the computer industry. And hardware companies have always cared. Not only do they want to make sure that customers receive [the genuine article](https://www.pcworld.com/article/262325/your_pc_may_come_with_malware_pre_installed.html), but they also want to make sure that their parts don’t appear in competitor products.
 
 It’s never been a sexy enough topic to reach high enough to the desks of CEOs. What it really needed was a big exciting cover story like the [Supermicro BMC](https://www.bloomberg.com/news/features/2018-10-04/the-big-hack-how-china-used-a-tiny-chip-to-infiltrate-america-s-top-companies
-) article from Bloomberg. It’s all the rage. Now many who need to talk about supply chain security are now talking about it. Whether you believe the story was true or not is simply irrelevant - it’s something everybody in this industry should be concerned about. 
+) article from Bloomberg. It’s all the rage. Many who need to talk about supply chain security are now talking about it. Whether you believe the story was true or not is simply irrelevant - it’s something everybody in this industry should be concerned about. 
 
 ### The challenge
 
@@ -15,7 +14,13 @@ While I mentioned business relationships, it’s also about understanding what y
 
 ### Solutions with incentives
 
-Assuming business arrangements are dandy, I believe the most effective way to secure the supply chain is to build a chain of trust. It’s a bit like a “zero-trust” network, you authenticate all firmware to ensure that they are from the expected suppliers and you authenticate peripherals like you would with network endpoints. It’s a tried and tested method in other domains. In order to authenticate something you need to already have metadata, which would need to be provisioned at the previous stage. If this can be achieved then this can provide some assurance that final products are genuine. To solve the issue of cloned or missing components, classical inventory tracking should be used (not going to mention databases or blockchains here!). It all sounds rather simple but it really isn’t because the world of business is messy. You need all your suppliers to be on board with the idea. Like all instances of a chain of trust, you must implicitly trust the very first part of the chain. If the actual chain is of length one then it may be difficult to not trust your factory. 
+Assuming business arrangements are dandy, I believe the most effective way to secure the supply chain is to build a _chain of trust_. 
+It’s a bit like a “zero-trust” network, you authenticate all software to ensure that they are from the expected suppliers and you authenticate peripherals like you would with typical network endpoints.
+The "chain" aspect means you start with very little amount of trust and continually authenticate in a nested fashion. For instance, 
+your hardare would authenticate the firmware, which then authenticates peripherals and subsystems, which then authenticate the OS, which then authenticates network endpoints, and so on.
+It’s a tried and tested method in other domains. 
+As you can imagine, there's a lot of authentication going on.
+In order to authenticate something you need to already have metadata, which would need to be provisioned at the previous stage. If this can be achieved then this can provide some assurance that final products are genuine. To solve the issue of cloned or missing components, classical inventory tracking should be used (not going to mention databases or blockchains here!). It all sounds rather simple but it really isn’t because the world of business is messy. You need all your suppliers to be on board with the idea. Like all instances of a chain of trust, you must implicitly trust the very first part of the chain. If the actual chain is of length one then it may be difficult to not trust your factory. 
 
 Security alone usually isn’t enough of an incentive. There needs to be an industry wide incentive to make this all hang together consistently. If a solution helps solve a business problem as well a security problem, then it’s likely to get more serious attention from business leaders. One main incentive is to shift liability in case a problem occurs. More problems in a supplier component result in more support costs and even recalls, which ultimately reduces profits. Some manufacturers already have the technical means of doing this. This can be measured. Alternatively, some may argue that potential repetitional damage due to poor security can be a good business reason to provide better security practices. But that risk is hard to measure or predict numbers, and in my opinion, only effective once you’ve got a valuable brand. 
 
@@ -33,7 +38,7 @@ There is hope:
 seem to provide a full solution, due to heterogeneous deployment
 models. The most promising one seems to be [SDO](https://www.intel.co.uk/content/www/uk/en/internet-of-things/secure-device-onboard.html). 
 
-So, some relevant questions to ask:
+So, imagine you're a manufacturer. Some relevant questions to ask:
 
 * What do you need to protect from who and at which stage of the supply chain?
 * Who do you trust and what do you trust them not to do?
