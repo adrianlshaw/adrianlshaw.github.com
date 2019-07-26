@@ -17,7 +17,7 @@ While I mentioned business relationships, it’s also about understanding what y
 Assuming business arrangements are dandy, I believe the most effective way to secure the supply chain is to build a _chain of trust_. 
 It’s a bit like a “zero-trust” network, you authenticate all software to ensure that they are from the expected suppliers and you authenticate peripherals like you would with typical network endpoints.
 The "chain" aspect means you start with very little amount of trust and continually authenticate in a nested fashion. For instance, 
-your hardare would authenticate the firmware, which then authenticates peripherals and subsystems, which then authenticate the OS, which then authenticates network endpoints, and so on.
+your hardware would authenticate the firmware, which then authenticates peripherals and subsystems, which then authenticate the OS, which then authenticates network endpoints, and so on.
 It’s a tried and tested method in other domains.
 
 As you can imagine, there's a lot of authentication going on.
