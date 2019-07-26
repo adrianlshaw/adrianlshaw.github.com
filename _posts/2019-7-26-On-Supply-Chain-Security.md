@@ -31,7 +31,7 @@ Since I don’t think generic threat models are possible here, someone can and s
 
 There is hope:
 
-* Big companies like Apple, Amazon and Google are increasingly investing in on-house development and reducing their dependencies on external suppliers. They are big targets for attackers and possibly have the most to lose from attacks.
+* Big companies like Apple, Amazon and Google are increasingly building more parts in-house and reducing their dependency on external suppliers. They are big targets for attackers and possibly have the most to lose from attacks.
 
 * Component authentication standards are being worked on in [DMTF](https://www.dmtf.org/content/dmtf-releases-security-protocol-and-data-model-spdm-architecture-work-progress) and [PCIe](http://pcisig.com/pcie%C2%AE-component-authentication). Apple have been [trailblazers](https://support.apple.com/en-us/HT204566) beforehand and I hope these emerging standards are well adopted.
 
