@@ -18,7 +18,8 @@ Assuming business arrangements are dandy, I believe the most effective way to se
 It’s a bit like a “zero-trust” network, you authenticate all software to ensure that they are from the expected suppliers and you authenticate peripherals like you would with typical network endpoints.
 The "chain" aspect means you start with very little amount of trust and continually authenticate in a nested fashion. For instance, 
 your hardare would authenticate the firmware, which then authenticates peripherals and subsystems, which then authenticate the OS, which then authenticates network endpoints, and so on.
-It’s a tried and tested method in other domains. 
+It’s a tried and tested method in other domains.
+
 As you can imagine, there's a lot of authentication going on.
 In order to authenticate something you need to already have metadata, which would need to be provisioned at the previous stage. If this can be achieved then this can provide some assurance that final products are genuine. To solve the issue of cloned or missing components, classical inventory tracking should be used (not going to mention databases or blockchains here!). It all sounds rather simple but it really isn’t because the world of business is messy. You need all your suppliers to be on board with the idea. Like all instances of a chain of trust, you must implicitly trust the very first part of the chain. If the actual chain is of length one then it may be difficult to not trust your factory. 
 
