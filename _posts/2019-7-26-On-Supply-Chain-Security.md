@@ -1,5 +1,3 @@
-# On supply chain security
-
 
 >Reminder: these are all personal opinions and are not affiliated with any employer 
 
