@@ -27,7 +27,31 @@
     <script src="/js/pagemap.min.js"></script>
     <canvas id='map'></canvas>
     <script>
-        pagemap(document.querySelector('#map'));
+
+idleTimer = null;
+idleState = false;
+idleWait = 3000;
+
+$(document).ready(function() {
+        $('*').bind('mousemove keydown scroll', function () {
+
+            clearTimeout(idleTimer);
+            if (idleState == true) {
+                // Reactivated event
+                $("#map").removeClass("mapfade");
+            }
+
+            idleState = false;
+            idleTimer = setTimeout(function () {
+
+                // Idle Event
+                $("#map").addClass("mapfade");
+                idleState = true; }, idleWait);
+        });
+
+        $("body").trigger("mousemove");
+    initialize();
+});
     </script>	
     
     <div class="wrapper-masthead">
