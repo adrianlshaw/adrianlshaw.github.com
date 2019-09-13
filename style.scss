@@ -31,6 +31,7 @@ body {
 }
 
 #map {
+    background:#ccc;
     position: fixed;
     top: 0;
     right: 0;
@@ -38,6 +39,8 @@ body {
     height: 100%;
     z-index: 100;
 }
+
+.mapfade{opacity:0;}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
