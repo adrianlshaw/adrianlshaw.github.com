@@ -7,7 +7,10 @@ title: About
 
 See [Google Scholar](https://scholar.google.com/citations?user=g8z20PAAAAAJ&hl=en&oi=ao)
 
+5 granted patents and counting...
+
 **IETF drafts**
 
 * IETF I2NSF (draft-pastor-i2nsf-nsf-remote-attestation-07) 
 * IETF RATS (draft-tschofenig-rats-psa-token-05.html)
+	    (draft-shaw-rats-rear-00)
