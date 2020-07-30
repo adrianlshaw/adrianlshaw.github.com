@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/adrianlshaw
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://adrianlshaw.com
+  * I am adrianlshaw (https://keybase.io/adrianlshaw) on keybase.
+  * I have a public key with fingerprint 1ACE F182 610A A658 21E7  0BF5 15E8 21F5 771D FEB6
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101b83fc400535c03bf776026aa67b1f4c2e41f87eeb4bf584b0d114c191fc8d9d50a",
+      "fingerprint": "1acef182610aa65821e70bf515e821f5771dfeb6",
+      "host": "keybase.io",
+      "key_id": "15e821f5771dfeb6",
+      "kid": "0101b83fc400535c03bf776026aa67b1f4c2e41f87eeb4bf584b0d114c191fc8d9d50a",
+      "uid": "2418ecbb54132c43a850825ce0b32819",
+      "username": "adrianlshaw"
+    },
+    "service": {
+      "hostname": "adrianlshaw.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1596118771,
+  "expire_in": 157680000,
+  "prev": "dde31ac29e0af49b54eed6f89b73b49b6d44b3746fd75f6bf02171eaf6452c78",
+  "seqno": 17,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtkm1sFEUYx+9sS0qFqkEKAa94i22wFNzZt9m9KIKtJGKkJi2leoV1Z3e23XK3
+e7d7vYOUhgBF6AcTUYuR00pUWiOGD1oR01aKJ8VcU4LGcKY1WCjYqnAgBnxpSpxt
+5JN+dL7MPDP//2+e55l5eW6OJ987f9J/M+G7fcw79BPyyFTmvhYKWdo2KtBCbcEz
+Ew5p2InJWwyNClA0oAESWV3laJpneZVmkQ6hQDOCoggQAZ1TGcwBXYQYIw7pvMgh
+WgOAU4EEdFXUJI2nFaqc0g2zAdsR2zBjBAsUFetAZARAEw4vMgBDmrgBj8la5yEE
+mo6RQIyNluM6SHJIcfBKwyJ7JJBn0vsP/f+cd/MMjuGAiFWEeA6wjMqxisjTIsOr
+mEYsIwLJFTrYNpUwJmpFsw3FDDmNSoJqLafIQdxQsdtbt5h/i1aqVpgQIrYVs1Qr
+RA4bY7GIE3DNsW0RV53ASP6HIyPD1Eg3iSOObcewTCoAiFKNGS4Y8JIAgEg6Uk7h
+rRHDxrLhKngoiDQZ7j04TpCarGGWPAQjYVrROYkUh7Em6KKEIItILGgch1jICboG
+eV1AOs0ACLCiCxzPqFCk3NKipkXgkCSqNBCoYzSYSqzZxlRrQbv341yPN9/jK/Ln
+Ljrz6y6loKvOP3H3zTtfMO8u9/95Cmbfe2fnim+OZ8/y8XkbH4tmppcuuurt8Q/P
+7u45XNI93Xvx+vC+5OWqPO7Hg33X36o8MVq/9odLfQsq9madLn/VUNnRD0auvIg/
+uZB+o2375bKdwZZwIh0tnjX16GSnnsz75Vp/tnz6ePBk+qmB7+alspsy+8eatuYu
+zZSWla6/eM8CWLxwRby58+mzO/LOjOweDKlLDuR8nY5ODh16tjX11V97z7HhtuVV
+q79dsq69Gvh8r3XatYVF+9dUj147KIw/8sXiiSO1FU9+f7pSeP/ccysqK3tfLaop
+eOjL9o3hiVVFwf7N5+fHH1A+m3PqxPHeo2vNQWnD22t8m/oGsh1QeTCzs/7DOjS8
+e49c/Hik8J3ng9WTbDJ1q+e9F2qzp6cOLLu17EhoFj7b27b4T0jHtd/qjXdvdz9T
+wjS9BNuTf3y+flf/pXXRidLXxx5O5Yyl8p9YKKV/P9yR3PzmyPl91EffiNtrTpaM
+Xs0GEwNqQ06i6cahDdNy1/2rfr5xam7dVMWFwo4aenVgjKLGX1EHj326428=
+=qgQG
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/adrianlshaw
+
+==================================================================
+
