@@ -24,7 +24,7 @@ body {
 }
 @media (prefers-color-scheme: dark) {
   body {
-	background: $darkGray;
+	background: #262A2B;
   	font: 18px/1.4 Helvetica;
   	color: $white;
   }
@@ -89,6 +89,9 @@ h3 {
 h4 {  
   font-size: 18px;
   color: $gray;
+   @media (prefers-color-scheme: dark) {
+	color: $white;
+   }
 }
 
 p {
@@ -140,11 +143,17 @@ img {
 .date {
   font-style: italic;
   color: $gray;
+   @media (prefers-color-scheme: dark) {
+	color: $white;
+   }
 }
 
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
+   @media (prefers-color-scheme: dark) {
+	color: $white;
+   }
   background: $lightGray;
 }
 ::selection {
