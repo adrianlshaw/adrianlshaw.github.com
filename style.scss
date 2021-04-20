@@ -96,6 +96,9 @@ h4 {
 
 p {
   margin: 15px 0;
+  @media (prefers-color-scheme: dark) {
+	color: $white;
+  }
 }
 
 a {
