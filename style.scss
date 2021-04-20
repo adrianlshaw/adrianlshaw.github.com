@@ -264,6 +264,9 @@ nav {
   a {
     margin-left: 20px;
     color: $darkGray;
+    @media (prefers-color-scheme: dark) {
+	color: $white;
+    }
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
