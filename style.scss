@@ -23,9 +23,11 @@ body {
   color: $darkGray;
 }
 @media (prefers-color-scheme: dark) {
-  background: $darkGray;
-  font: 18px/1.4 Helvetica;
-  color: $white;
+  body {
+	background: $darkGray;
+  	font: 18px/1.4 Helvetica;
+  	color: $white;
+  }
 }
 
 .container {
