@@ -23,3 +23,8 @@ self.addEventListener('fetch', function(e) {
     })
   );
 });
+
+/* Disable pinch to zoom (hack) */
+document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) { event.preventDefault(); }
+}, false);
