@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     <meta name="author" content="{{ site.name }}" />
     <meta name="description" content="{{ site.description }}">
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <style>
+        body {
+            background-color: black;
+            color:blanchedalmond;
+            padding: 10%;
+        }
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+        a {
+            color:cornflowerblue;
+        }
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
+        aside {
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  background-color:darkred;
+}
+    </style>
 
-  <body>
-   
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-          
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-          
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-	    <a href="{{ site.baseurl }}/publications">Publications</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
-    </div>
+</head>
+<main>
+<h1><u>adrianlshaw.com</u></h1>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+<aside>
+    <p>Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones Foobar jones 
+    </p>
+</aside>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
+<h1>Etymology of computer terms</h1>
+<p> It is s easy to forget about the origins of some very common computer terms. Quite a few of them rely on a good familiarity with the history of computer development. As a native English speaker I feel like I should be...</p>
+<a href="">READ MORE</a>
+<p />
 
-    {% include analytics.html %}
-    <script data-goatcounter="https://adrianlshaw.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-  </body>
+<div id="main" role="main" class="container">
+    {{ content }}
+  </div>
+
+<script data-goatcounter="https://adrianlshaw.goatcounter.com/count"
+async src="//gc.zgo.at/count.js"></script>
+
+</main>
 </html>
