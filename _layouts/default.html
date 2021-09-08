@@ -28,7 +28,13 @@
             color:cornflowerblue;
         }
 
-        aside {
+        @media screen and (max-width: 600px) {
+		aside {
+			visibility: hidden;
+		}
+	}
+
+	aside {
   		padding: 15px;
   		margin-left: 15px;
   		text-align: center;
