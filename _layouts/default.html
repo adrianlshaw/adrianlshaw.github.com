@@ -14,33 +14,49 @@
     <meta name="description" content="{{ site.description }}">
 
     <style>
-        body {
-	    align: center;
-            background-color: white;
-            color:black;
 
-            @media (prefers-color-scheme: dark) {
-	       color:blanchedalmond;
-	       background-color: black;
-            }
+	@media (prefers-color-scheme: dark) {
+		body {
+			background-color: black;
+			color: blanchedalmond;
+		}
 
-            padding: 10%;
-	    padding-top: 15px;
-	    max-width: 1080px;
-	    margin: 0 auto;
-        }
+		a {
+			color: white;
+			color:cornflowerblue;
+			text-decoration: underline;
+		}
+	}
 
-        a {
-            color:black;
-	    text-decoration: none;
+	@media (prefers-color-scheme: light) {
+		body {
+			background-color: white;
+			background-color: black;
+		}
+	}
 
-	      @media (prefers-color-scheme: dark) {
-		  color:cornflowerblue;
-		  text-decoration: underline;
-  	      }
-        }
+	body {
+	align: center;
+		background-color: white;
+		color:black;
 
-        @media screen and (max-width: 600px) {
+		@media (prefers-color-scheme: dark) {
+			color:blanchedalmond;
+			background-color: black;
+		}
+
+		padding: 10%;
+		padding-top: 15px;
+		max-width: 1080px;
+		margin: 0 auto;
+	}
+
+	a {
+		color:black;
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: 600px) {
 		aside {
 			max-width: 0%;
 			padding: 0px;
