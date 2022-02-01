@@ -22,6 +22,11 @@ body {
   font: 18px/1.4 Helvetica;
   color: $darkGray;
 }
+
+ul li {
+	padding: 5px 0px;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
 	background: #262A2B;
