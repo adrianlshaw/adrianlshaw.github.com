@@ -1,21 +1,81 @@
----
-layout: default
----
+<html>
+<head>
+	<style>
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color: black;
+				color: white;
+			}
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">    
-      
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+			a {
+				color: white;
+				color: cornflowerblue;
+				text-decoration: underline;
+			}
 
-      <div class="entry">
-        {{ post.content | truncatewords:40}}
-      </div>
-      
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"><small>READ MORE</small></a>
-    </article>
+			ol li { padding: 5px 0px; }
+		}
+	</style>
+</head>
 
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<body>
+	<h1 align="center">adrianlshaw.com</h1>
 
-  {% endfor %}
-</div>
+	Researcher looking at new defenses for computers: personal devices, printers and industrial.
+	Neck deep in low level virtualization software, trusted computing hardware and trusted execution environments.
+	Previously worked on platform security for microcontrollers, servers and network devices.
+
+	<h2>Links</h2>
+
+	<a href="https://github.com/adrianlshaw">Github</a><br />
+	<a href="https://twitter.com/adrianlshaw">Twitter</a><br />
+	<a href="https://mastodon.social/@adrianlshaw">Mastodon</a><br />
+	<a href="http://keybase.io/adrianlshaw">Keybase</a><br />
+	<!--<a href="https://adrianlshaw.com/feed.xml">RSS</a>-->
+
+	<h2>Publications</h2>
+	<ol>
+
+	<li>Reto Achermann, Chris I. Dalton, Paolo Faraboschi, Moritz Hoffmann, Dejan S. Milojicic, Geoffrey Ndu, Alex Richardson, Timothy Roscoe, Adrian L. Shaw, Robert N. M. Watson, 
+		<b>Separating Translation from Protection in Address Spaces with Dynamic Remapping</b>, HotOS 2017: 118-124</li>
+	<li>Adrian L. Shaw, Hamza Attak, <b>Exploring Granular flow Integrity for Interconnected Trusted Platforms</b>, TrustCom 2017: 594-601</li>
+	<li>Antonio Lioy, Tao Su, Adrian L. Shaw, Hamza Attak, Diego R. Lopez, Antonio Pastor <b>Trust in SDN/NFV Environments</b>, Guide to Security in SDN and NFV 2017: 103-124</li>
+	<li>Diego Montero, Marcelo Yannuzzi, Adrian L. Shaw, Ludovic Jacquin, Antonio Pastor, Rene Serral-Gracia, Antonio Lioy, Fulvio Risso, Cataldo Basile, Roberto Sassu, Mario Nemirovsky, Francesco Ciaccia, Michael Georgiades, Savvas Charalambides, Jarkko Kuusijarvi, Francesca Bosco, <b>Virtualized security at the network edge: a user-centric approach</b>,  IEEE Commun. Mag. 53(4): 176-186 (2015)</li>
+	<li>Ludovic Jacquin, Antonio Lioy, Diego R. Lopez, Adrian L. Shaw, Tao Su, <b>The Trust Problem in Modern Network Infrastructures</b>, CSP Forum 2015</li>
+	<li>Ludovic Jacquin, Adrian L. Shaw, Chris I. Dalton, <b>Towards trusted software-defined networks using a hardware-based Integrity Measurement Architecture</b>, IEEE NetSoft 2015</li>
+	<li>Adrian L. Shaw, Behzad Bordbar, John T. Saxon, Keith Harrison, Chris I. Dalton, <b>Forensic Virtual Machines: Dynamic Defence in the Cloud via Introspection</b>, IC2E 2014:</li>
+    </ol>
+	<h2>Public projects</h2>
+
+	<ul>
+		<li>Platform Security Architecture (PSA). A standardized hardware Root of Trust for tiny IoT devices,
+			which eventually became a part of the much broader <a href="https://www.psacertified.org">PSA Certified</a>
+			framework</li>
+		<li><a href="https://www.secured-fp7.eu">SECurity at the network EDge (SECURED)</a>, an EC funded project to
+			improve security of connected devices.</li>
+		<li>Trust Domains, a project funded by the Technology Strategy Board (TSB) in the UK</li>
+	</ul>
+
+	<h2>Recent service (TPC)</h2>
+	<li>IEEE International Conference on Network Softwarization (Netsoft 2022)</li>
+	<li>4th International Workshop on Cyber-Security in Software-defined and Virtualized Infrastructures (SecSoft 2022)</li>
+
+	<h2>IETF drafts</h2>
+	<ul>
+		<li>PSA attestation format: <a href="https://www.ietf.org/id/draft-tschofenig-rats-psa-token-09.html">https://www.ietf.org/id/draft-tschofenig-rats-psa-token-09.html</a></li>
+		<li>Attestation API over HTTP: <a href="https://datatracker.ietf.org/doc/html/draft-shaw-rats-rear-00">https://datatracker.ietf.org/doc/html/draft-shaw-rats-rear-00</a></li>
+		<li>Attestation procedures for NSFs: <a href="https://datatracker.ietf.org/doc/html/draft-pastor-i2nsf-nsf-remote-attestation-07">https://datatracker.ietf.org/doc/html/draft-pastor-i2nsf-nsf-remote-attestation-07</a></li>
+	</ul>
+
+	<h2>Misc</h2>
+
+	<a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/industry/ieee_confluence_report.pdf">Artificial Intelligence and Machine Learning Applied to Cybersecurity</a>
+
+	<h2>Patents</h2>
+
+	Full list available <a
+		href="https://patents.google.com/?inventor=Adrian+Shaw&assignee=Hewlett+Packard+Co,Hewlett+Packard+Enterprise,ARM+">here</a>
+
+</body>
+
+</html>
