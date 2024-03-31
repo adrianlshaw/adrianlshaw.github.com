@@ -54,5 +54,4 @@ async def show_graph(input_string):
 
     fig.set_size_inches(4, 3)
 
-    if input_string != "":
-        display(fig, target="mpl")
+    display(fig, target="mpl")
