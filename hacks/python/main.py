@@ -39,6 +39,7 @@ async def on_input_unwrapped(*args):
 
 
 async def show_graph(input_string):
+    output.innerHTML += "<div id='mpl' />"
     mpl = Element("mpl").element
     mpl.innerHTML = ""
     # Data for plotting
