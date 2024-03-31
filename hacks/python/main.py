@@ -35,10 +35,10 @@ async def on_input_catch_all(*args):
 async def on_input_unwrapped(*args):
     output.innerHTML = "You typed " + str(input.value)
     #print("You typed " + str(input.value))
-    await show_graph()
+    await show_graph(input.value)
 
 
-async def show_graph():
+async def show_graph(input_string):
     mpl = Element("mpl").element
     mpl.innerHTML = ""
     # Data for plotting
@@ -49,7 +49,7 @@ async def show_graph():
     ax.plot(t, s)
 
     ax.set(xlabel='time (s)', ylabel='voltage (mV)',
-           title='About as simple as it gets, folks')
+           title='A graph about ' + str(input_string))
     ax.grid()
 
     fig.set_size_inches(4, 3)
