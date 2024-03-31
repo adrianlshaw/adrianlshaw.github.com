@@ -52,4 +52,6 @@ async def show_graph():
            title='About as simple as it gets, folks')
     ax.grid()
 
+    fig.set_size_inches(4, 3)
+
     display(fig, target="mpl")
