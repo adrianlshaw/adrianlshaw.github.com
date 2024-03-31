@@ -56,4 +56,6 @@ async def show_graph(input_string):
 
     if input_string != "":
         display(fig, target="mpl")
+    else:
+        mpl.innerHTML = ""
     plt.close(fig)
