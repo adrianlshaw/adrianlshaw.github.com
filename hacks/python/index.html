@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>test</title>
+    <meta charset="utf-8" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <py-config> packages = ["matplotlib"] </py-config>
+    <py-script src="./main.py"></py-script>
+
+    <body>
+        <h1>Python in the browser</h1>
+        <p>Here is a simple example of running Python in the browser,
+            with WASM under the hood.</p>
+
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+                <h2>Input</h2>
+                <textarea id="in" class="form-control" placeholder="Enter text..." py-input="on_input()"></textarea>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+                <h2>Output</h2>
+
+                <div id="out" class="output-area"></div>
+                <div id="mpl" max-width="auto">
+                </div>
+            </div>
+    </body>
+
+</html>
