@@ -21,7 +21,7 @@ scoop install git
 scoop install vim
 ```
 
-There's no need for Admin rights either, which is great.
+Simple!
 
 ## Coreutils
 
