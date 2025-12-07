@@ -1,0 +1,4 @@
+echo source "https://rubygems.org" > Gemfile
+echo "" >> Gemfile
+echo gem "jekyll", "~> 4.3" >> Gemfile
+/opt/homebrew/opt/ruby/bin/bundle exec jekyll serve
