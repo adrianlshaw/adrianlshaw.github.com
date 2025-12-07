@@ -159,10 +159,14 @@ img {
 .article-list {
   .article {
     margin-bottom: 0.75rem;
+    // flex: lays out children (date + title) in a row
+    display: flex;
     
     .date {
-      display: inline-block;
-      min-width: 140px;
+      // flex-shrink: 0 prevents the date from shrinking when space is tight,
+      // ensuring the fixed width is always respected and titles align
+      flex-shrink: 0;
+      width: 170px;
       margin-right: 1rem;
       font-style: normal;
       font-size: 0.9em;
