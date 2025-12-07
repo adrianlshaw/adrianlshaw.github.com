@@ -11,6 +11,7 @@ See [Google Scholar](https://scholar.google.com/citations?user=g8z20PAAAAAJ&hl=e
 
 **IETF drafts**
 
+* RFC 9783 (https://datatracker.ietf.org/doc/html/rfc9783)
 * IETF I2NSF (draft-pastor-i2nsf-nsf-remote-attestation-07) 
 * IETF RATS (draft-tschofenig-rats-psa-token-05.html)
 	    (draft-shaw-rats-rear-00)
