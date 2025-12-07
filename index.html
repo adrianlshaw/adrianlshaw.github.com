@@ -1,95 +1,18 @@
-<html>
-<head>
-	<title>adrianlshaw's main website</title>
-	<meta name="keywords" content="platform security, firmware security, secure boot, attestation, operating system">
-	<meta name="robots" content="index, follow" />
-	<meta name="author" content="Adrian Shaw">
-	<meta name="description" content="Adrian Shaw, principal researcher and platform security expert">
+---
+layout: default
+---
 
-</head>
-<body>
-	<h1>adrianlshaw's website</h1>
+<div class="posts">
+  {% for post in site.posts %}
+    <article class="post">    
+      
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-	<p>Welcome! Here I share with you some summaries of some things that I've worked on that you may
-	find interesting. Feel free to browse around and check out my work. If you have questions 
-	or want a friendly conversation, you can reach out to me at adrianlshaw on
-	 <a href="https://www.twitter.com/adrianlshaw/">Twitter</a>
-	 or <a href="https://www.mastodon.social/@adrianlshaw/">Mastodon</a>
-	 or <a href="https://adrianlshaw.bsky.social/">Bluesky</a>.
-
-	 </p>
-
-	<p></p>
-	Career (so far):
-	<ul>
-	<li><b>Principal Researcher</b> at <a href="https://www.hp.com/gb-en/hp-labs.html">HP Labs</a>, where I work hard to push the boundaries on secure hardware/software co-design in PCs and laptops.</li>
-	<li><b>Security Architect</b> at <a href="https://www.arm.com">ARM</a>, where I worked on the TrustZone architecture and designed software standards, including Platform Security Architecture (PSA).</li>
-	<li><b>Research Scientist</b> at <a href="https://www.hpe.com/us/en/hewlett-packard-labs.html">Hewlett Packard Enterprise (Labs)</a>, where I worked on platform security technologies for servers and network equipment.</li>
-	</ul>
-
-	Areas of interest:
-
-<ul>
-
-<li><b>Software:</b> hypervisors (Xen, KVM, and more), operating system (Linux, L4, Zephyr, Barrelfish and more) technologies, device drivers, security subsystems and network virtualization (SDN and DC networking)</li>
-<li><b>Firmware:</b> boot security, robustness, firmware (UEFI BIOS, Trusted Firmware), secure update, trusted execution environments, secure logging and attestation, secure storage, protocols etc.</li>
-<li><b>Hardware:</b> SoC security, system architecture and IP, Trusted Platform Modules (TPM), some <i>very</i> limited Verilog/FPGA experience</li>
-</ul>	
-
-<p>
-I've had the privilege to work with some outstanding people in the industry, including students
-as well as veterans, and I've learned a tremendous amount from them.
-</p>
-
-<p>
-	Giving back to the research community is important to me. 
-	I serve on the technical committee of IEEE NetSoft conference, the <a href="https://www.secsoft-workshop.org">SecSoft</a> workshop and <a href="https://fnwf2025.ieee.org/committees/technical-program-committee">IEEE Future Networks World Forum</a>.
-.
-	I'm available to participate in others.
-</p>
-
-<p>I've also represented my employers at various industry standards bodies, 
-	including the Trusted Computing Group (TCG), Internet Engineering Task Force (IETF), 
-    Distributed Management Task Force (DMTF) and ETSI.</p>
-
-
-Some interesting (public) projects I've worked on that may interest you or others. They deserve
-proper writeups and I hope to get round to that soon.
-But for now here is an unordered list and brief descriptions.
-
-	<ul>
-		<li>Zephyr-CHERI (more to come on that).
-			<ul>
-			<li>CHERI is an extension to instruction sets that provides very precise memory compartmentalization. </li>
-			<li>Zephyr is an emerging RTOS for microcontrollers and a promising ecosystem. </li>
-			</ul>
-		</li>
-		<li>Platform Security Architecture (PSA) for TrustZone based IoT devices. This later became a part of <a href="https://en.wikipedia.org/wiki/PSA_Certified">PSA Certified</a></li>
-		<ul>
-			<li><a href="https://community.arm.com/arm-community-blogs/b/internet-of-things-blog/posts/psa-secure-iot-devices">Firmware Update API standard</a></li>
-			<li>Standard Root of Trust interfaces: Attestation API, Crypto API, Storage API. Now available on a few popular RTOS systems.</li>
-			<li>Firmware Framework M (FF-M)</li>		
-			<li>Mbed SPM: An extension of the Mbed RTOS that provides a secure partition manager for Cortex-M microcontrollers without TrustZone. <br />An evolution of the <a href="https://www.slideshare.net/slideshow/practical-realtime-operating-system-security-for-the-masses/70399398">uVisor project</a> to implement PSA principles.</li>
-			<li><a href="https://www.trustedfirmware.org">Trusted Firmware M</a>: a secure partition manager designed for ARMv8-M or multiprocessor architecture. Occasional code reviews and design discussions  </li>
-			<li><a href="https://www.ietf.org/proceedings/94/slides/slides-94-i2nsf-6.pdf">IETF</a> drafts</li>
-		</ul>
-		<li><a href="https://retoachermann.ch/static/papers/achermann-2017-stp.pdf">A different approach to memory protection in large scale systems</a></li>
-		<li>Designing security for a non-volatile memory (NVM) based supercomputer called <a href="https://en.wikipedia.org/wiki/The_Machine_(computer_architecture)">The Machine</a></li>
-		<li><a href="https://www.ietf.org/proceedings/93/slides/slides-93-nfvrg-21.pdf">Trustworthy Network Function Virtualization (NFV) infrastructure</a>"</li>
-		<li><a href="https://ieeexplore.ieee.org/document/7116186">TPM-based attestation for network equipment</a></li>
-		<li><a href="https://web.archive.org/web/20210617075801/https://www.techrepublic.com/article/secured-moves-iot-and-byod-security-from-devices-to-the-network/">SECurity at the network EDge</a>: an EU funded project to offload security applications from devices into the network</li>
-		<li><a href="pub/the_trust_domains_guide.pdf">Trust Domains</a>: a UK funded research project that explored economical models and technical mechanisms to build and encourage trust within computer systems</li>
-		<li><a href="https://www.bbc.co.uk/news/technology-16636609">Forensic VMs</a></li>
-
-	</ul>
-
-<p>
-Patents are a "thing" in the industry. 
-They're not a good measure of innovation, 
-but they're <a href="https://patents.google.com/?inventor=Adrian+Shaw,Adrian+Laurence+Shaw&assignee=Hewlett+Packard+Development+Co,Arm+Limited,Izuma+Tech+Inc,Arm+Cloud+Technology%2c+Inc,Hewlett+Packard+Enterprise+Development+Lp">something</a>.
-</p>
-
-Well... that's all for now. I hope you enjoy your visit.
-
-</body>
-</html>
+      <div class="entry">
+        {{ post.content | truncatewords:40}}
+      </div>
+      
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
