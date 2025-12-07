@@ -1,6 +1,7 @@
 ---
 layout: post
-title: ARM memory barriers 
+title: ARM memory barriers
+tags: [arm, hardware]
 ---
 
 Unlike on certain x86 memory models, the latest ARM processors (at least v6 onwards) do not provide any guarantees for order of writes

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Debian package example
+tags: [linux, debian]
 ---
 
 Happy new year! It's been around a year since I've made a post,

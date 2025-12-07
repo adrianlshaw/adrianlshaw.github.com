@@ -1,6 +1,7 @@
 ---
 layout: post
-title: lowRISC ISA 
+title: lowRISC ISA
+tags: [hardware]
 ---
 
 Another interesting project in the latest "open" hardware movement. [http://riscv.org]. I was mainly curious to see what kind of 

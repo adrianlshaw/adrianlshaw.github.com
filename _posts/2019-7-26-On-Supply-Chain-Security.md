@@ -1,3 +1,8 @@
+---
+layout: post
+title: On Supply Chain Security
+tags: [security, hardware]
+---
 
 _Reminder: these are all personal opinions and are not affiliated with any employer_
 

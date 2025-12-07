@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux container madness
+tags: [linux, docker, security]
 ---
 
 (...or How I Got Root in Less than 5 Minutes)

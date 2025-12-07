@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Etymology of computer terms
+tags: [history]
 ---
 
 It's easy to forget about the origins of some very common computer terms. Quite a few of them rely on a good familiarity with the

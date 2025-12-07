@@ -360,6 +360,109 @@ footer {
   text-align: center;
 }
 
+// Tag system styles
+.index-container {
+  display: flex;
+  gap: 40px;
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.article-list {
+  flex: 1;
+}
+
+.tag-sidebar {
+  width: 80px;
+  flex-shrink: 0;
+  
+  @include mobile {
+    width: 100%;
+    order: -1;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 1px solid $lightGray;
+    padding-bottom: 10px;
+    
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: $gray;
+    }
+  }
+  
+  .tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 0px;
+      
+      a {
+        color: $gray;
+        text-decoration: none;
+        font-size: 14px;
+        
+        &:hover {
+          color: $blue;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+          color: $lightGray;
+        }
+      }
+    }
+  }
+}
+
+.post-tags {
+  display: inline-block;
+  margin-left: 10px;
+  
+  .tag {
+    display: inline-block;
+    background: $lightGray;
+    color: $gray;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+    
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      background: $darkGray;
+      color: $lightGray;
+      
+      &:hover {
+        background: $blue;
+        color: $white;
+      }
+    }
+  }
+}
+
+.back-link {
+  margin-top: 30px;
+  
+  a {
+    color: $gray;
+    
+    @media (prefers-color-scheme: dark) {
+      color: $lightGray;
+    }
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "_highlights";

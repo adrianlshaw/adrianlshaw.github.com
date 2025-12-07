@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<h1>Posts tagged "{{ page.tag }}"</h1>
+
+<section class="article-list">
+  {% for post in site.tags[page.tag] %}
+    <div class="article">
+      <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </div>
+  {% endfor %}
+</section>
+
+<p class="back-link"><a href="{{ site.baseurl }}/">← Back to all posts</a></p>

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Undocumented shared libraries
+tags: [linux, tools]
 ---
 
 Typically I find myself working with some really awkward, undocumented open source libraries. 

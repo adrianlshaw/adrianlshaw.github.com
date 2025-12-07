@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Beautiful mac apps
+tags: [macos, tools]
 ---
 
 An opinion piece.

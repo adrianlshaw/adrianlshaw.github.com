@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello world with markdown
-title: Hello world with markdown
+tags: [tools]
 ---
 
 Markdown is booming in the community. I've never been a big fan of [ASCIIdoc](https://en.wikipedia.org/wiki/AsciiDoc), 
