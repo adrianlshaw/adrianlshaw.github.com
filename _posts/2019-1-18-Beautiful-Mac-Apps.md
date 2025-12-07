@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beautiful Mac Apps
+title: Beautiful mac apps
 ---
 
 An opinion piece.

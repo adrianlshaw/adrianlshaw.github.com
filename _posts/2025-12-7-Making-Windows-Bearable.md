@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Making Windows Bearable
+title: Making windows bearable
 ---
 
 Sometimes you have no choice but to use Windows. Whether it's for work, gaming, or that one piece of software that only runs on Microsoft's platform, we've all been there. After years of macOS, going back to Windows feels like I keep bumping my head
