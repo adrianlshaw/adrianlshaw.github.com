@@ -1,100 +1,92 @@
-# Windows containers pitfalls and escape hatches
+---
+layout: post
+title: Windows containers pitfalls and escape hatches
+tags: [windows, docker]
+---
 
-I’ve had enough of the hassle of manually tuning Windows development environments and dealing with their brittle nature. Lately, I’ve had no choice but to use it to build some software, and the environment can make or break a piece of software.
+I've had enough of the hassle of manually tuning Windows development environments and dealing with their brittle nature. Lately, I've had no choice but to use Windows to build some software, and the environment can make or break a piece of software.
 
-So, I decided to automate the pain. Docker supports “Windows Containers.” As far as I understand, Windows doesn’t have OS-level containers. Instead, it creates a virtual machine whenever you want a container.
+So, I decided to automate the pain. Docker supports "Windows Containers." Unlike Linux containers which use OS-level namespaces and cgroups, Windows containers come in two flavours: process isolation (similar to Linux containers, but only available on Windows Server) and Hyper-V isolation (which spins up a lightweight VM). On Windows 10/11, you're typically stuck with Hyper-V isolation.
 
-Even with a basic Windows container, you can’t escape some of the confusing quirks. So, I’ll share some of the challenges I’ve faced, some advice, and, in the end, give you a Dockerfile that’s worth its weight in gold.
+Even with a basic Windows container, you can't escape some confusing quirks. In this post, I'll share the challenges I've faced, some hard-won advice, and a complete Dockerfile example at the end.
 
 ## Base images
 
-A good that I use is `mcr.microsoft.com/windows/servercore:ltsc2019`
-I believe it's a cut down version of Windows Server.
+A good base image I use is `mcr.microsoft.com/windows/servercore:ltsc2019`. I believe it's a cut-down version of Windows Server.
 
-Other images have disappeared from the registry. It's not clear when Microsoft decides to remove them, so try and be aware.
+Be aware that other images have disappeared from the registry. It's not clear when Microsoft decides to remove them, so try to stay informed.
 
 ## PowerShell
 
-You should try and use powershell for everything, if you can.
+You should try to use PowerShell for everything when possible. It's the default shell in Windows containers and handles paths, environment variables, and Unicode much better than CMD. When downloading files, use `Invoke-WebRequest` or `Invoke-RestMethod` rather than shelling out to `curl`.
 
 ## CMD Shell
 
-But that's not always possible. The trick to using CMD in a container is to 
-use the following flags. 
+But it's not always possible to use PowerShell. The trick to using CMD in a container is to use the following flags in your Dockerfile:
 
-In the Dockerfile I can use: SHELL ["cmd", "/S", "/C"]
+```dockerfile
+SHELL ["cmd", "/S", "/C"]
+```
 
-Here’s a breakdown of what each part means:
+Here's what each part roughly means:
 
-- `SHELL`: This Dockerfile instruction changes the default shell used for RUN commands.
+- **`SHELL`**: This Dockerfile instruction changes the default shell used for RUN commands.
+- **`cmd`**: Specifies that the shell to be used is the Windows Command Prompt executable (cmd.exe).
+- **`/S`**: This switch changes how commands are processed. It strips out certain extra processing that might interfere with commands, ensuring they run as intended.
+- **`/C`**: This switch tells cmd.exe to carry out the command that follows and then terminate.
 
-- `cmd`: This specifies that the shell to be used is the Windows Command Prompt executable (cmd.exe).
-
-- `/S`: This is a switch for cmd.exe that changes how commands are processed. It generally strips out certain extra processing that might interfere with commands, ensuring that the following commands run as intended.
-
-- `/C`: This switch tells cmd.exe to carry out the command that follows and then terminate.
-
-This helps ensure compatibility and behavior more closely aligned with what Windows users might expect from a batch/Command Prompt environment rather than PowerShell.
-
+This ensures behaviour that is closely aligned with what Windows users might expect from a batch/Command Prompt environment rather than PowerShell.
 
 ## Paths in Dockerfile
 
-Use "\\" instead of '\' wherever possible. You never know which program may strip them out 
-because they are some escape character. Without doing this, I certainly had cases where
-environment variables would show "CUsersUser.sshid_rsa" instead of C:\Users\User\.ssh\id_rsa
+Use `\\` instead of `\` wherever possible. You never know which program may strip them out because they are treated as escape characters. Without doing this, I had cases where environment variables would show `CUsersUser.sshid_rsa` instead of `C:\Users\User\.ssh\id_rsa`.
 
-## Administrator and unprivileged User
+## Administrator vs Unprivileged User
 
-The most important thing to note is that unprivileged users can't create symbolic links.
-This is annoying when you use software that requires them, like `gitman`.
+The most important thing to note is that unprivileged users can't create symbolic links. This is annoying when you use software that requires them, like `gitman`.
 
-At least with the `ltsc2019 ` image, I found you can't use the registry tweaks or turn on developer mode to enable this, like you would on a typical Windows install.
+At least with the `ltsc2019` image, I found you can't use the registry tweaks or turn on developer mode to enable this, like you would on a typical Windows install.
 
-Best workaround is to run that container software as Administrator. It's a bit sad, but
-I've not found a solution yet.
+The best workaround is to run container software as Administrator. It's a bit sad, but I've not found a solution yet.
 
-## Package management
+## Package management
 
-I highly recommend the scoop.sh package manager. Especially over Chocolaty, Nuget or Winget.
-Scoop works without admin, but if you face the symlink issue then you can force
-Scoop to install and run as administator by using an extra install argument. 
+I highly recommend the [scoop.sh](https://scoop.sh) package manager, especially over Chocolatey, NuGet, or WinGet. Scoop works without admin, but if you face the symlink issue then you can force Scoop to install and run as Administrator by using an extra install argument.
 
 ## Git and SSH agent
 
-I found the following necessary for ssh-agent to work
+I found the following necessary for ssh-agent to work. Run these as Administrator:
 
+```powershell
+Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+```
 
-Run the followin as administrator:
-- `Get-Service -Name ssh-agent | Set-Service -StartupType Automatic`
-- `Start-Service ssh-agent`
+**Important:** Don't put `Start-Service ssh-agent` as a RUN command in the Dockerfile, because it won't be running when the container starts—services don't persist across image layers.
 
-Don't put these Start-Service ssh-agent as a RUN command in the Dockerfile, because it 
-won't be started on 
+You also need the following, otherwise SSH agent won't work properly:
 
-You also need to the following otherwise SSH agent won't work properly:
+```bash
+git config --global core.sshCommand "'C:\\Windows\\System32\\OpenSSH\\ssh.exe'"
+git config --global core.symlinks true
+```
 
-- git config --global core.sshCommand "'C:\\Windows\\System32\\OpenSSH\\ssh.exe'"
+If you run some git-based tool like gitman, you may not see any interactive prompts that normally appear. One case is that it was hung on an invisible prompt asking to accept a host key. Either connect to the server manually beforehand, or disable StrictHostKeyChecking:
 
+```dockerfile
+RUN echo Host * >> C:\Users\ContainerAdministrator\.ssh\config && \
+    echo     StrictHostKeyChecking no >> C:\Users\ContainerAdministrator\.ssh\config
+```
 
-- git config --global core.symlinks true
-
-If you run some git-based tool like gitman, you may not see any interactive prompts that normally appear. One case is that it was hung on an invisible prompt asking to accept host key. 
-Either connect to the server manually or disable StrictHostKeyChecking using the following:
-
-RUN echo "Host *\n    StrictHostKeyChecking no" >> C:\Users\ContainerAdministrator\.ssh\config
-
-This is utterly insecure and I don't recommedn this. 
-It's better to scan the hosts at a known good time and save the host file in a place that can
-then be copied into the container.
+**Warning:** This is utterly insecure and I don't recommend it. It's better to scan the hosts at a known good time and save the known_hosts file somewhere that can then be copied into the container.
 
 ## Installing Visual Studio
 
-The easiest way to install visual studio into a container is to 
-create a vsproj file and pass it into the Visual Studo installer.
+The easiest way to install Visual Studio into a container is to create a `.vsconfig` file and pass it to the Visual Studio installer.
 
 Here is an example:
 
-```
+```json
 {
   "version": "1.0",
   "components": [
@@ -110,4 +102,54 @@ Here is an example:
     "Microsoft.VisualStudio.Component.VC.ATLMFC"
   ]
 }
+```
+
+You can find the component IDs you need in the [Visual Studio component directory](https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools).
+
+## Example Dockerfile
+
+Here's a complete example bringing together most of the advice from this post:
+
+```dockerfile
+# escape=`
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+# Use CMD shell for compatibility
+SHELL ["cmd", "/S", "/C"]
+
+# Install Scoop as Administrator
+RUN powershell -Command `
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; `
+    iex (New-Object Net.WebClient).DownloadString('https://get.scoop.sh')
+
+# Install essential tools via Scoop
+RUN powershell -Command `
+    scoop install git; `
+    scoop install cmake; `
+    scoop install ninja
+
+# Configure Git for SSH
+RUN git config --global core.sshCommand "'C:\\Windows\\System32\\OpenSSH\\ssh.exe'" && `
+    git config --global core.symlinks true
+
+# Enable and start SSH agent
+RUN powershell -Command `
+    Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
+
+# Set up working directory
+WORKDIR C:\\workspace
+
+# Entry point that starts ssh-agent
+CMD powershell -Command "Start-Service ssh-agent; cmd"
+```
+
+**Note:** Remember that services don't persist across image layers, so `Start-Service ssh-agent` must be in the entry point or run script, not in a `RUN` command.
+
+---
+
+## Final thoughts
+
+Windows containers are painful, but they can save hours of manual environment setup once you get them working.
+
+Good luck, and may your builds be reproducible.
 ```
