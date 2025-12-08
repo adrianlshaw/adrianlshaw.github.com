@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Windows containers pitfalls and escape hatches
+title: Windows containers pitfalls
 tags: [windows, docker]
 ---
 
