@@ -3,7 +3,14 @@ layout: page
 title: Patents
 ---
 
-<table>
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #ccc;"
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ccc; padding: 8px;">Header 1</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Header 2</th>
+    </tr>
+  </thead>
+<tbody>
   <tr>
     <th><a href="https://patents.google.com/patent/US9633231B2/en"></a>0001</th>
     <th><a href="https://patents.google.com/patent/US10528752B2/en"></a>0002</th>
@@ -24,4 +31,5 @@ title: Patents
     <th><a href="https://patents.google.com/patent/US12512965B2/en"></a>0013</th>
     <th><a href="https://patents.google.com/patent/US12524260B2/en"></a>0014</th>
   </tr>
+ </tbody>
 </table>
