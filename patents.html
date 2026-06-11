@@ -1,24 +1,287 @@
-<html>
-<table>
-  <tr>
-    <th><a href="https://patents.google.com/patent/US9633231B2/en"></a>0001</th>
-    <th><a href="https://patents.google.com/patent/US10528752B2/en"></a>0002</th>
-    <th><a href="https://patents.google.com/patent/US11757717B2/en"></a>0003</th>
-    <th><a href="https://patents.google.com/patent/US10425282B2/en"></a>0004</th>
-    <th><a href="https://patents.google.com/patent/US10242195B2/en"></a>0005</th>
-  </tr>
-  <tr>
-    <th><a href="https://patents.google.com/patent/US10248814B2/en"></a>0006</th>
-    <th><a href="https://patents.google.com/patent/US10310990B2/en"></a>0007</th>
-    <th><a href="https://patents.google.com/patent/US10896267B2/en"></a>0008</th>
-    <th><a href="https://patents.google.com/patent/US20240097905A1/en"></a>0009</th>
-    <th><a href="https://patents.google.com/patent/US20240097914A1/en"></a>0010</th>
-  </tr>
-  <tr>
-    <th><a href="https://patents.google.com/patent/US20250013763A1/en"></a>0011</th>
-    <th><a href="https://patents.google.com/patent/US20250200199A1/en"></a>0012</th>
-    <th><a href="https://patents.google.com/patent/US12512965B2/en"></a>0013</th>
-    <th><a href="https://patents.google.com/patent/US12524260B2/en"></a>0014</th>
-  </tr>
-</table>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patent Plaque Grid</title>
+
+  <style>
+    :root{
+      --bg: #0f1115;
+      --wood1:#1b0706;
+      --wood2:#4a1b16;
+      --wood3:#2a0f0c;
+      --mat1:#efe7d2;
+      --mat2:#e3d8be;
+      --brassA:#f4e3ab;
+      --brassB:#d7b46a;
+      --brassC:#c59a3c;
+      --brassD:#a97618;
+      --rule: rgba(39, 96, 160, .75);
+      --ink: #211407;
+
+      /* Responsive sizing knobs */
+      --gap: clamp(10px, 2.2vw, 18px);
+      --tile-min: 220px;                 /* min tile width before wrapping */
+      --tile-h: clamp(135px, 18vh, 165px);/* responds to height changes */
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin: 0;
+      min-height: 100svh; /* better on mobile; use 100vh fallback if needed */
+      background: radial-gradient(1200px 700px at 20% 0%, #171a22 0%, var(--bg) 55%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #e8e8e8;
+      padding: clamp(12px, 2.5vw, 24px);
+    }
+
+    /* Responsive grid container */
+    .patent-grid{
+      display: grid;
+      gap: var(--gap);
+      /* auto-fit reflows as width changes */
+      grid-template-columns: repeat(auto-fit, minmax(var(--tile-min), 1fr));
+      align-items: stretch;
+    }
+
+    /* Plaque link fills its grid cell */
+    a.patent-plaque{
+      display: grid;
+      place-items: center;
+      gap: 7px;
+      height: var(--tile-h);   /* responds to viewport height */
+      width: 100%;
+
+      text-decoration: none;
+      color: var(--ink);
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.05) 0 2px,
+          rgba(0,0,0,.07) 2px 4px
+        ),
+        linear-gradient(135deg,
+          var(--wood3) 0%,
+          var(--wood2) 25%,
+          var(--wood1) 55%,
+          #5a241e 100%
+        );
+
+      border-radius: 10px;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+
+      box-shadow:
+        0 14px 30px rgba(0,0,0,.55),
+        inset 0 2px 0 rgba(255,255,255,.10),
+        inset 0 -2px 0 rgba(0,0,0,.40);
+
+      transform: translateZ(0);
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+
+    a.patent-plaque::before{
+      content:"";
+      position:absolute;
+      inset: 10px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--mat1) 0%, var(--mat2) 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.18),
+        inset 0 2px 0 rgba(255,255,255,.55);
+      pointer-events: none;
+    }
+
+    a.patent-plaque::after{
+      content:"";
+      position:absolute;
+      inset: 22px;
+      border-radius: 6px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.10) 0 1px,
+          rgba(0,0,0,.06) 1px 3px
+        ),
+        linear-gradient(135deg,
+          var(--brassA) 0%,
+          var(--brassB) 18%,
+          #f2e0a4 38%,
+          var(--brassC) 62%,
+          #edd79a 82%,
+          var(--brassD) 100%
+        );
+      box-shadow:
+        inset 0 0 0 1px rgba(70,45,10,.55),
+        inset 0 0 0 3px rgba(255,255,255,.16),
+        inset 0 2px 0 rgba(255,255,255,.45),
+        inset 0 -3px 0 rgba(0,0,0,.18);
+      pointer-events: none;
+    }
+
+    a.patent-plaque > *{
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .plaque-top{
+      font: 700 10px/1.1 ui-serif, Georgia, "Times New Roman", Times, serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .85;
+      margin-top: 2px;
+    }
+
+    .plaque-num{
+      position: relative;
+      font: 900 16px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.35),
+        0 -1px 0 rgba(0,0,0,.12);
+      padding: 2px 0;
+      white-space: nowrap;
+    }
+
+    .plaque-num::before,
+    .plaque-num::after{
+      content:"";
+      position:absolute;
+      top: -34px;
+      bottom: -34px;
+      width: 2px;
+      background: var(--rule);
+      opacity: .85;
+      border-radius: 2px;
+    }
+    .plaque-num::before{ left: -70px; }
+    .plaque-num::after { right: -70px; }
+
+    .plaque-title{
+      font: 600 11px/1.25 ui-serif, Georgia, "Times New Roman", Times, serif;
+      opacity: .9;
+      max-width: 22ch;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    a.patent-plaque:hover,
+    a.patent-plaque:focus-visible{
+      transform: translateY(-2px);
+      box-shadow:
+        0 18px 38px rgba(0,0,0,.65),
+        inset 0 2px 0 rgba(255,255,255,.12),
+        inset 0 -2px 0 rgba(0,0,0,.42);
+      filter: saturate(1.05) contrast(1.03);
+      outline: none;
+    }
+
+    a.patent-plaque:active{
+      transform: translateY(0px);
+    }
+
+    /* If the viewport is short, reduce height so you don’t get a scroll wall */
+    @media (max-height: 600px){
+      :root{ --tile-h: clamp(115px, 22vh, 140px); }
+      .plaque-title{ -webkit-line-clamp: 2; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="patent-grid" aria-label="Patent plaque links">
+    <a class="patent-plaque" href="https://patents.google.com/patent/US9633231B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US9633231B2</span>
+      <span class="plaque-title">Hardware-protective data processing systems and methods using an application executing in a secure domain</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10528752B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10528752B2</span>
+      <span class="plaque-title">Non-volatile storage of management data</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US11757717B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US11757717B2</span>
+      <span class="plaque-title">Verifying network elements</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10425282B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10425282B2</span>
+      <span class="plaque-title">Verifying a network configuration</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10242195B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10242195B2</span>
+      <span class="plaque-title">Integrity values for beginning booting instructions</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10248814B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10248814B2</span>
+      <span class="plaque-title">Memory integrity monitoring</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10310990B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10310990B2</span>
+      <span class="plaque-title">Direct memory access encryption with application provided keys</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US10896267B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US10896267B2</span>
+      <span class="plaque-title">Input/output data encryption</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US20240097905A1/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US20240097905A1</span>
+      <span class="plaque-title">Values exclusions</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US20240097914A1/en">
+      <span class="plaque-top">United States Patent Application</span>
+      <span class="plaque-num">US20240097914A1</span>
+      <span class="plaque-title">Authorization of states in a stateful signature scheme</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US20250013763A1/en">
+      <span class="plaque-top">United States Patent Application</span>
+      <span class="plaque-num">US20250013763A1</span>
+      <span class="plaque-title">Commands communications</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US20250200199A1/en">
+      <span class="plaque-top">United States Patent Application</span>
+      <span class="plaque-num">US20250200199A1</span>
+      <span class="plaque-title">Firmware controlled secrets</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US12512965B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US12512965B2</span>
+      <span class="plaque-title">Time intervals for stateful signature production</span>
+    </a>
+
+    <a class="patent-plaque" href="https://patents.google.com/patent/US12524260B2/en">
+      <span class="plaque-top">United States Patent</span>
+      <span class="plaque-num">US12524260B2</span>
+      <span class="plaque-title">Measurements of virtual machines</span>
+    </a>
+  </div>
+</body>
 </html>
+
