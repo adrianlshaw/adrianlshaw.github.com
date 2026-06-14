@@ -129,6 +129,12 @@ img {
   color: $gray;
 }
 
+.intro {
+  margin: 0 0 28px;
+  max-width: 62ch;
+  color: $darkGray;
+}
+
 // Article list (index page)
 .article-list {
   .article {
