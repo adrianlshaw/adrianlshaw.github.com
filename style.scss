@@ -22,12 +22,6 @@ body {
   font: 16px/1.5 $helvetica;
   color: $darkGray;
 }
-@media (prefers-color-scheme: dark) {
-  body {
-	background: #262A2B;
-  	color: $white;
-  }
-}
 
 .container {
   margin: 0 auto;
@@ -52,12 +46,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
   font-weight: 600;
-
-  @media (prefers-color-scheme: dark) {
-  	color: $white;
-  }
-
-
 
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -85,27 +73,17 @@ h3 {
   font-size: 18px;
 }
 
-h4 {  
+h4 {
   font-size: 18px;
   color: $gray;
-   @media (prefers-color-scheme: dark) {
-	color: $white;
-   }
 }
 
 p {
   margin: 15px 0;
-  @media (prefers-color-scheme: dark) {
-	color: $white;
-  }
 }
 
 a {
   color: $blue;
-
-  @media (prefers-color-scheme: dark) {
-	color: #3399ff;
-  }
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
@@ -149,9 +127,6 @@ img {
 .date {
   font-style: italic;
   color: $gray;
-   @media (prefers-color-scheme: dark) {
-	color: $white;
-   }
 }
 
 // Article list (index page)
@@ -180,9 +155,6 @@ img {
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
-   @media (prefers-color-scheme: dark) {
-	color: $white;
-   }
   background: $lightGray;
 }
 ::selection {
@@ -217,7 +189,7 @@ img {
 // Two-column page: left sidebar + main content
 //
 
-.page {
+.layout {
   display: flex;
   align-items: flex-start;
   gap: 40px;
@@ -257,9 +229,6 @@ img {
 
   a {
     color: $darkerGray;
-    @media (prefers-color-scheme: dark) {
-      color: $white;
-    }
   }
 }
 
@@ -267,9 +236,6 @@ img {
   margin: 4px 0 0 0;
   color: $gray;
   font-size: 14px;
-  @media (prefers-color-scheme: dark) {
-    color: $lightGray;
-  }
 }
 
 nav {
@@ -306,19 +272,11 @@ nav {
     text-transform: uppercase;
     color: $gray;
 
-    @media (prefers-color-scheme: dark) {
-      color: $lightGray;
-    }
-
     @include mobile {
       width: 100%;
       margin: 8px 0 0;
     }
   }
-}
-
-.sidebar-footer {
-  margin-top: 24px;
 }
 
 //
@@ -373,16 +331,6 @@ nav {
       background: $blue;
       color: $white;
     }
-    
-    @media (prefers-color-scheme: dark) {
-      background: $darkGray;
-      color: $lightGray;
-      
-      &:hover {
-        background: $blue;
-        color: $white;
-      }
-    }
   }
 }
 
@@ -391,10 +339,6 @@ nav {
   
   a {
     color: $gray;
-    
-    @media (prefers-color-scheme: dark) {
-      color: $lightGray;
-    }
   }
 }
 
